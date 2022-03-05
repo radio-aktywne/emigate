@@ -1,0 +1,30 @@
+udp:
+  routers:
+    emistream:
+      entryPoints:
+        - udp
+      service: emistream
+
+http:
+  routers:
+    admin:
+      entryPoints:
+        - admin
+      rule: PathPrefix(`/api`) || PathPrefix(`/dashboard`)
+      service: api@internal
+      middlewares:
+        - admin
+    emipass:
+      entryPoints:
+        - http
+      rule: PathPrefix(`/stream/.wrtc`)
+      service: emipass
+      middlewares:
+        - strip
+    emistream:
+      entryPoints:
+        - http
+      rule: PathPrefix(`/stream`)
+      service: emistream
+      middlewares:
+        - strip

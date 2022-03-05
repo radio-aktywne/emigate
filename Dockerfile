@@ -1,0 +1,26 @@
+ARG TRAEFIK_IMAGE_TAG=v2.6.1
+
+FROM traefik:$TRAEFIK_IMAGE_TAG
+
+WORKDIR /app
+
+COPY ./emigate/src/start.sh ./start.sh
+RUN chmod +x ./start.sh
+
+COPY ./emigate/conf/ ./conf/
+
+ENV EMIGATE_PORT=12000 \
+    EMIGATE_ADMIN_PORT=12001 \
+    EMIGATE_AUTHO_HOST=localhost \
+    EMIGATE_AUTHO_PORT=20000 \
+    EMIGATE_EMISTREAM_HOST=localhost \
+    EMIGATE_EMISTREAM_PORT=10000 \
+    EMIGATE_EMIPASS_HOST=localhost \
+    EMIGATE_EMIPASS_PORT=11000
+
+EXPOSE 12000
+EXPOSE 12000/udp
+EXPOSE 12001
+
+ENTRYPOINT ["./start.sh"]
+CMD []
