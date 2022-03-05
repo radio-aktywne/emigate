@@ -1,0 +1,17 @@
+udp:
+  services:
+    emistream:
+      loadBalancer:
+        servers:
+          - address: "{{env "EMIGATE_EMISTREAM_HOST" | default "localhost"}}:{{env "EMIGATE_EMISTREAM_PORT" | default "10000"}}"
+
+http:
+  services:
+    emipass:
+      loadBalancer:
+        servers:
+          - url: "http://{{env "EMIGATE_EMIPASS_HOST" | default "localhost"}}:{{env "EMIGATE_EMIPASS_PORT" | default "11000"}}"
+    emistream:
+      loadBalancer:
+        servers:
+          - url: "http://{{env "EMIGATE_EMISTREAM_HOST" | default "localhost"}}:{{env "EMIGATE_EMISTREAM_PORT" | default "10000"}}"

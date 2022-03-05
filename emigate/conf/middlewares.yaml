@@ -1,0 +1,12 @@
+http:
+  middlewares:
+    admin:
+      basicAuth:
+        removeHeader: false
+        users:
+          - "admin:$2y$10$rKL6FOkiL9jxac9eZ9/ouutxnVRcWyB6A.R5lyoAm1QJgxelrLOMy"
+    strip:
+      stripPrefix:
+        prefixes:
+          - "/stream"
+        forceSlash: false
