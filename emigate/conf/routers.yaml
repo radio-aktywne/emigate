@@ -13,6 +13,7 @@ http:
       rule: PathPrefix(`/api`) || PathPrefix(`/dashboard`)
       service: api@internal
       middlewares:
+        - auth
         - admin
     emipass:
       entryPoints:
@@ -20,6 +21,7 @@ http:
       rule: PathPrefix(`/stream/.wrtc`)
       service: emipass
       middlewares:
+        - auth
         - strip
     emistream:
       entryPoints:
@@ -27,4 +29,5 @@ http:
       rule: PathPrefix(`/stream`)
       service: emistream
       middlewares:
+        - auth
         - strip
