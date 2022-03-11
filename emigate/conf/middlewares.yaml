@@ -1,5 +1,11 @@
 http:
   middlewares:
+    auth:
+      forwardAuth:
+        address: "{{env "EMIGATE_AUTHO_URL" | default "http://localhost:20000"}}/decisions"
+        authResponseHeaders:
+          - "X-Id-Token"
+          - "Authorization"
     admin:
       basicAuth:
         removeHeader: false
