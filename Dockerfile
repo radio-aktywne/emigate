@@ -4,7 +4,7 @@ FROM traefik:$TRAEFIK_IMAGE_TAG
 
 WORKDIR /app
 
-COPY ./emigate/src/start.sh ./start.sh
+COPY emigate/start.sh ./start.sh
 RUN chmod +x ./start.sh
 
 COPY ./emigate/conf/ ./conf/
