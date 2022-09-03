@@ -10,7 +10,7 @@ http:
     admin:
       entryPoints:
         - admin
-      rule: PathPrefix(`/api`) || PathPrefix(`/dashboard`)
+      rule: PathPrefix(`/`)
       service: api@internal
       middlewares:
         - auth
