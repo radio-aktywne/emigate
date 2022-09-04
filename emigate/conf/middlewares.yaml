@@ -2,7 +2,7 @@ http:
   middlewares:
     auth:
       forwardAuth:
-        address: "{{env "EMIGATE_AUTHO_URL" | default "http://localhost:20000"}}/decisions"
+        address: "{{env "EMIGATE_AUTHGATE_URL" | default "http://localhost:20000"}}/autho/decisions"
         authResponseHeaders:
           - "X-Id-Token"
           - "Authorization"
