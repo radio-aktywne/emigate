@@ -7,6 +7,10 @@ udp:
 
 http:
   services:
+    auth:
+      loadBalancer:
+        servers:
+          - url: "{{ env "EMIGATE_AUTHGATE_URL" | default "http://localhost:20000" }}"
     emipass:
       loadBalancer:
         servers:

@@ -15,6 +15,13 @@ http:
       priority: 1
       middlewares:
         - auth
+    auth:
+      entryPoints:
+        - http
+      rule: PathPrefix(`/auth`)
+      service: auth
+      middlewares:
+        - strip
     emipass:
       entryPoints:
         - http
