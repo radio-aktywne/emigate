@@ -7,11 +7,12 @@ udp:
 
 http:
   routers:
-    admin:
+    api:
       entryPoints:
-        - admin
-      rule: PathPrefix(`/`)
+        - http
+      rule: Path(`/`) || PathPrefix(`/api`) || PathPrefix(`/dashboard`)
       service: api@internal
+      priority: 1
       middlewares:
         - auth
     emipass:
