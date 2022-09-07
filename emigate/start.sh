@@ -6,8 +6,6 @@ entryPoints:
     address: ":${EMIGATE_PORT:-12000}"
   udp:
     address: ":${EMIGATE_PORT:-12000}/udp"
-  admin:
-    address: ":${EMIGATE_ADMIN_PORT:-12001}"
 
 api:
   dashboard: true
