@@ -9,5 +9,6 @@ http:
     strip:
       stripPrefix:
         prefixes:
+          - "/auth"
           - "/stream"
         forceSlash: false
