@@ -9,8 +9,9 @@ http:
   services:
     auth:
       loadBalancer:
+        serversTransport: authgate
         servers:
-          - url: "{{ env "EMIGATE_AUTHGATE_URL" | default "http://localhost:20000" }}"
+          - url: "{{ env "EMIGATE_AUTHGATE_URL" | default "https://localhost:20000" }}"
     emipass:
       loadBalancer:
         servers:
